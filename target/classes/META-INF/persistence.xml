@@ -6,7 +6,11 @@
 
     <persistence-unit name="contas">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- Mapeando a classe Conta -->
         <class>br.com.sandro.jpa.modelo.Conta</class>
+        <!-- Mapeando a classe Movimentacao -->
+        <class>br.com.sandro.jpa.modelo.Movimentacao</class>
+        
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
