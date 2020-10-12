@@ -26,7 +26,7 @@ public class TestaRelacionamentoMovimentacaoCategoria {
 		movimentacao.setDescricao("Viagem á SP");
 		movimentacao.setTipoMovitencao(TipoMovimentacao.SAIDA);
 		movimentacao.setData(LocalDateTime.now());
-		movimentacao.setValor(new BigDecimal(400.0));
+		movimentacao.setValor(new BigDecimal(400.0)); 
 		movimentacao.setCategorias(Arrays.asList(categoria, categoria2));
 		movimentacao.setConta(conta);
 		

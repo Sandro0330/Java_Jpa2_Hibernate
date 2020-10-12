@@ -10,7 +10,8 @@ import br.com.sandro.jpa.modelo.Conta;
 public class TestaRelacionamentoClienteConta {
 	
 	public static void main(String[] args) {
-		 Conta conta = new Conta();
+		 
+		Conta conta = new Conta();
 		 conta.setId(1L);
 		 
 		 Cliente cliente = new Cliente();

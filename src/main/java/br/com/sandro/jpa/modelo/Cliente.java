@@ -16,10 +16,6 @@ public class Cliente {
 	private String endereco;
 	private String profissao;
 
-	public Long getId() {
-		return id;
-	}
-
 	@JoinColumn(unique = true)
 	@OneToOne
 	private Conta conta;
@@ -30,6 +26,10 @@ public class Cliente {
 
 	public void setConta(Conta conta) {
 		this.conta = conta;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 	
 	public void setId(Long id) {
