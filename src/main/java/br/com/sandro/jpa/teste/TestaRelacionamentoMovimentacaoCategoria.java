@@ -20,7 +20,7 @@ public class TestaRelacionamentoMovimentacaoCategoria {
 		Categoria categoria2 = new Categoria("Negócios");
 		
 		Conta conta = new Conta();
-		conta.setId(3L);
+		conta.setId(1L);
 		
 		Movimentacao movimentacao = new Movimentacao();
 		movimentacao.setDescricao("Viagem á SP");
@@ -32,7 +32,7 @@ public class TestaRelacionamentoMovimentacaoCategoria {
 		
 		
 		Movimentacao movimentacao2 = new Movimentacao();
-		movimentacao2.setDescricao("Viagem á RJ");
+		movimentacao2.setDescricao("Viagem ao RJ");
 		movimentacao2.setTipoMovitencao(TipoMovimentacao.SAIDA);
 		movimentacao2.setData(LocalDateTime.now());
 		movimentacao2.setValor(new BigDecimal(300.0));
