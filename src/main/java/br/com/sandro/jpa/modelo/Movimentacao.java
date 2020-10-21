@@ -29,6 +29,9 @@ public class Movimentacao {
 	@ManyToMany
 	private List<Categoria> categorias;
 	
+	@ManyToOne
+	private Conta conta;
+	
 	public List<Categoria> getCategorias() {
 		return categorias;
 	}
@@ -36,9 +39,6 @@ public class Movimentacao {
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
-
-	@ManyToOne
-	private Conta conta;
 	
 	public Conta getConta() {
 		return conta;

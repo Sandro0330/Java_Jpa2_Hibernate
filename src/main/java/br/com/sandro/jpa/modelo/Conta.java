@@ -1,9 +1,12 @@
 package br.com.sandro.jpa.modelo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity // mapea a entidade como uma tabela no banco de dados
 public class Conta {
@@ -14,6 +17,9 @@ public class Conta {
 	private Integer numero;
 	private String titular;
 	private Double saldo;
+	
+	@OneToMany
+	private List<Movimentacao> movimentacoes;
 	
 
 	public Double getSaldo() {
@@ -54,5 +60,9 @@ public class Conta {
 
 	public void setTitular(String titular) {
 		this.titular = titular;
+	}
+
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
 	}
 }
