@@ -17,6 +17,7 @@ public class TesteJPQLMovimentacaoDeUmaCategoria {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 		EntityManager em = emf.createEntityManager();
 		
+		@SuppressWarnings("deprecation")
 		Categoria categoria = new Categoria();
 		categoria.setId(16L);
 		String jpql = "select m from Movimentacao m join m.categorias c where c = :pCategoria";

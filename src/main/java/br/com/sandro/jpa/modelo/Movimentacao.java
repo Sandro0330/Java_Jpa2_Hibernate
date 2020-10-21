@@ -2,6 +2,7 @@ package br.com.sandro.jpa.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,28 +11,27 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-@Entity  
+@Entity
 public class Movimentacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Enumerated(EnumType.STRING)
-	private TipoMovimentacao tipoMovitencao; //Chamando o metodo Enum com o parametro de Entrada,Saida
-	
+	private TipoMovimentacao tipoMovitencao; // Chamando o metodo Enum com o parametro de Entrada,Saida
+
 	private BigDecimal valor;
 	private LocalDateTime data;
 	private String descricao;
-	
-	@ManyToMany
-	private List<Categoria> categorias;
-	
+
 	@ManyToOne
 	private Conta conta;
-	
+	@OneToMany
+	private List<Categoria> categorias = new ArrayList<>();
+
 	public List<Categoria> getCategorias() {
 		return categorias;
 	}
@@ -39,7 +39,7 @@ public class Movimentacao {
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
-	
+
 	public Conta getConta() {
 		return conta;
 	}
@@ -87,5 +87,5 @@ public class Movimentacao {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 }
