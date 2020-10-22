@@ -16,13 +16,13 @@ public class TestaRelatorioDasMovimentacoes {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 		EntityManager em = emf.createEntityManager();
 		
-		String jpql = "select c from Conta c";
+		String jpql = "select c from Conta c left join fetch c.movimentacoes"; // c é da entidade Conta
 		TypedQuery<Conta> query = em.createQuery(jpql, Conta.class);
 		
 		List<Conta> contas = query.getResultList();
 		for (Conta conta : contas) {
 			System.out.println("Titular: " + conta.getTitular());
-			System.out.println("Agencia: " + conta.getAgencia());
+			System.out.println("Agencia: " + conta.getAgencia()); 
 			System.out.println("Numero: " + conta.getNumero());
 			System.out.println("Movimentações: " + conta.getMovimentacoes());
 		}
