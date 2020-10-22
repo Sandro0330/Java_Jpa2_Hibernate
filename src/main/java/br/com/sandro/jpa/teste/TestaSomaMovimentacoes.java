@@ -1,7 +1,5 @@
 package br.com.sandro.jpa.teste;
 
-import java.math.BigDecimal;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -13,12 +11,15 @@ public class TestaSomaMovimentacoes {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 		EntityManager em = emf.createEntityManager();
 		
-		String jpql = "select sum(m.valor) from Movimentacao m ";
+		//String jpql = "select sum(m.valor) from Movimentacao m "; // somando os valores da tabela 
+		String jpql = "select avg(m.valor) from Movimentacao m "; // média dos valores da tabela movimentação
 		
-		TypedQuery<BigDecimal> query = em.createQuery(jpql, BigDecimal.class);
-		BigDecimal somaDasMovimentacoes = query.getSingleResult();
+		TypedQuery<Double> query = em.createQuery(jpql, Double.class);
+		Double mediaDasMovimentacoes = query.getSingleResult();
 		
-		System.out.println("A soma das movimentações é: " + somaDasMovimentacoes);
+		//System.out.println("A soma das movimentações é: " + somaDasMovimentacoes);
+		System.out.println("A média das movimentações é: " + mediaDasMovimentacoes);
+
 		
 	}
 }
