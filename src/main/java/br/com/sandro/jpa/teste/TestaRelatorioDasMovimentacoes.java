@@ -24,6 +24,7 @@ public class TestaRelatorioDasMovimentacoes {
 			System.out.println("Titular: " + conta.getTitular());
 			System.out.println("Agencia: " + conta.getAgencia());
 			System.out.println("Numero: " + conta.getNumero());
+			System.out.println("Movimentações: " + conta.getMovimentacoes());
 		}
 		
 	}
