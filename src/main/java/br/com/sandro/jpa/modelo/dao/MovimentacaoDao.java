@@ -7,12 +7,34 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import br.com.sandro.jpa.modelo.MediaComData;
+import br.com.sandro.jpa.modelo.Movimentacao;
 
 public class MovimentacaoDao {
 	private	EntityManager em;
 
 	public MovimentacaoDao(EntityManager em) {
 		this.em = em;
+	}
+	
+	public List<Movimentacao> getMovimetacoesFiltradasPorData(Integer dia, Integer mes, Integer ano) {
+		String sql = "select m from Movimentacao m ";
+		
+		
+		if(dia != null) {
+			sql = sql + " day(m.data) = :pDia";
+		}
+		
+		if(dia != null) {
+			sql = sql + "and month(m.data) = :pMes";
+		}
+		
+		if(dia != null) {
+			sql = sql + "and year(m.data) = :pAno";
+		}
+		
+		
+		
+		return null;
 	}
 
 	public List<MediaComData> getMediaDiariaDasMovimentacoes() {	

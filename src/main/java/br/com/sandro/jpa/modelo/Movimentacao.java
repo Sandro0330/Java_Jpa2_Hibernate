@@ -28,7 +28,6 @@ public class Movimentacao {
 
 	@Enumerated(EnumType.STRING)
 	private TipoMovimentacao tipoMovitencao; // Chamando o metodo Enum com o parametro de Entrada,Saida
-
 	private BigDecimal valor;
 	private LocalDateTime data;
 	private String descricao;
