@@ -14,6 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.NamedQuery;
+
+@NamedQuery(name="mediaDiariaMovimentacoes", 
+query="select new br.com.sandro.jpa.modelo.MediaComData (avg(m.valor), year(m.data), month(m.data), day(m.data)) from Movimentacao m group by  year(m.data), month(m.data), day(m.data)") // média dos valores da tabela movimentação
+
+
 @Entity
 public class Movimentacao {
 	@Id
