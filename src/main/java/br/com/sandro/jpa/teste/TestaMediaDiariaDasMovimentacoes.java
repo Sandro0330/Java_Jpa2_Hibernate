@@ -2,13 +2,21 @@ package br.com.sandro.jpa.teste;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import br.com.sandro.jpa.modelo.MediaComData;
 import br.com.sandro.jpa.modelo.dao.MovimentacaoDao;
 
 public class TestaMediaDiariaDasMovimentacoes {
 
 	public static void main(String[] args) {
-		List<MediaComData> mediaDasMovimentacoes = new MovimentacaoDao().getMediaDiariaDasMovimentacoes();
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
+		EntityManager em = emf.createEntityManager();
+		
+		List<MediaComData> mediaDasMovimentacoes = new MovimentacaoDao(em).getMediaDiariaDasMovimentacoes();
 		
 		for (MediaComData resultado : mediaDasMovimentacoes) {
 			
